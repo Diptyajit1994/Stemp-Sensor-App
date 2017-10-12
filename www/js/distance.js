@@ -8,27 +8,37 @@ function getAccResult(mydata){
 
 var accelaration_data = mydata;
 console.log(accelaration_data);
-var accelaration_x = new Array()
-var accelaration_y = new Array()
-var accelaration_z = new Array()
-var time_obs = new Array()
-for(var x in accelaration_data){
-	var item = accelaration_data[x]
-	console.log(item)
-	var time = new Date(item[0])
-	var x= item[1]
-	var y= item[2]
-	var z= item[3]
-    accelaration_x.push(x)
-    accelaration_y.push(y)
-    accelaration_z.push(z)
-    time_obs.push(time)
-	//document.write("Time: "+time+ " X: "+x+" Y:"+y+" Z:"+z+"<br>" )
+function read_data(accelaration_data){
+	var accelaration_x = new Array()
+	var accelaration_y = new Array()
+	var accelaration_z = new Array()
+	var time_obs = new Array()
+	for(var x in accelaration_data){
+		var item = accelaration_data[x]
+		console.log(item)
+		var time = new Date(item[0])
+		var x= item[1]
+		var y= item[2]
+		var z= item[3]
+    	accelaration_x.push(x)
+    	accelaration_y.push(y)
+    	accelaration_z.push(z)
+    	time_obs.push(time)
+		//document.write("Times: "+time+ " X: "+x+" Y:"+y+" Z:"+z+"<br>" )
+	}
+	return [accelaration_x, accelaration_y, accelaration_z, time_obs]
 }
+
+var acctime = read_data(accelaration_data);
+console.log(acctime);
+accelaration_x = acctime[0];
+accelaration_y = acctime[1];
+accelaration_z = acctime[2];
+time_obs = acctime[3];
 
 var acc_size = accelaration_x.length;
 var time_size = time_obs.length;
-//document.write("Acc Size: "+acc_size+ " Time Ins Size: "+time_size+"<br>");
+//document.write("data Size: "+acc_size+ " Time Ins Size: "+time_size+"<br>");
 
 function velocity(accelaration, time_instant) {
 	var v = 0;
@@ -39,7 +49,7 @@ function velocity(accelaration, time_instant) {
     while(count < time_instant){
         var time_diff = (time_obs[count]-time_obs[count-1])/1000;
         //document.write("Interval "+count+" = ",time_diff+"<br>");
-    	v += time_diff*accelaration[count];
+    	v += time_diff*accelaration[count-1];
         count ++;
     }
     return v;
@@ -116,27 +126,37 @@ function getAbVelResult(mydata){
 
 var accelaration_data = mydata;
 console.log(accelaration_data);
-var accelaration_x = new Array()
-var accelaration_y = new Array()
-var accelaration_z = new Array()
-var time_obs = new Array()
-for(var x in accelaration_data){
-	var item = accelaration_data[x]
-	console.log(item)
-	var time = new Date(item[0])
-	var x= item[1]
-	var y= item[2]
-	var z= item[3]
-    accelaration_x.push(x)
-    accelaration_y.push(y)
-    accelaration_z.push(z)
-    time_obs.push(time)
-	//document.write("Time: "+time+ " X: "+x+" Y:"+y+" Z:"+z+"<br>" )
+function read_data(accelaration_data){
+	var accelaration_x = new Array()
+	var accelaration_y = new Array()
+	var accelaration_z = new Array()
+	var time_obs = new Array()
+	for(var x in accelaration_data){
+		var item = accelaration_data[x]
+		console.log(item)
+		var time = new Date(item[0])
+		var x= item[1]
+		var y= item[2]
+		var z= item[3]
+    	accelaration_x.push(x)
+    	accelaration_y.push(y)
+    	accelaration_z.push(z)
+    	time_obs.push(time)
+		//document.write("Times: "+time+ " X: "+x+" Y:"+y+" Z:"+z+"<br>" )
+	}
+	return [accelaration_x, accelaration_y, accelaration_z, time_obs]
 }
+
+var acctime = read_data(accelaration_data);
+console.log(acctime);
+accelaration_x = acctime[0];
+accelaration_y = acctime[1];
+accelaration_z = acctime[2];
+time_obs = acctime[3];
 
 var acc_size = accelaration_x.length;
 var time_size = time_obs.length;
-//document.write("Acc Size: "+acc_size+ " Time Ins Size: "+time_size+"<br>");
+//document.write("data Size: "+acc_size+ " Time Ins Size: "+time_size+"<br>");
 
 function velocity(accelaration, time_instant) {
 	var v = 0;
@@ -147,7 +167,7 @@ function velocity(accelaration, time_instant) {
     while(count < time_instant){
         var time_diff = (time_obs[count]-time_obs[count-1])/1000;
         //document.write("Interval "+count+" = ",time_diff+"<br>");
-    	v += time_diff*accelaration[count];
+    	v += time_diff*accelaration[count-1];
         count ++;
     }
     return v;
@@ -224,27 +244,37 @@ function getAvgVelResult(mydata){
 
 var accelaration_data = mydata;
 console.log(accelaration_data);
-var accelaration_x = new Array()
-var accelaration_y = new Array()
-var accelaration_z = new Array()
-var time_obs = new Array()
-for(var x in accelaration_data){
-	var item = accelaration_data[x]
-	console.log(item)
-	var time = new Date(item[0])
-	var x= item[1]
-	var y= item[2]
-	var z= item[3]
-    accelaration_x.push(x)
-    accelaration_y.push(y)
-    accelaration_z.push(z)
-    time_obs.push(time)
-	//document.write("Time: "+time+ " X: "+x+" Y:"+y+" Z:"+z+"<br>" )
+function read_data(accelaration_data){
+	var accelaration_x = new Array()
+	var accelaration_y = new Array()
+	var accelaration_z = new Array()
+	var time_obs = new Array()
+	for(var x in accelaration_data){
+		var item = accelaration_data[x]
+		console.log(item)
+		var time = new Date(item[0])
+		var x= item[1]
+		var y= item[2]
+		var z= item[3]
+    	accelaration_x.push(x)
+    	accelaration_y.push(y)
+    	accelaration_z.push(z)
+    	time_obs.push(time)
+		//document.write("Times: "+time+ " X: "+x+" Y:"+y+" Z:"+z+"<br>" )
+	}
+	return [accelaration_x, accelaration_y, accelaration_z, time_obs]
 }
+
+var acctime = read_data(accelaration_data);
+console.log(acctime);
+accelaration_x = acctime[0];
+accelaration_y = acctime[1];
+accelaration_z = acctime[2];
+time_obs = acctime[3];
 
 var acc_size = accelaration_x.length;
 var time_size = time_obs.length;
-//document.write("Acc Size: "+acc_size+ " Time Ins Size: "+time_size+"<br>");
+//document.write("data Size: "+acc_size+ " Time Ins Size: "+time_size+"<br>");
 
 function velocity(accelaration, time_instant) {
 	var v = 0;
@@ -255,7 +285,7 @@ function velocity(accelaration, time_instant) {
     while(count < time_instant){
         var time_diff = (time_obs[count]-time_obs[count-1])/1000;
         //document.write("Interval "+count+" = ",time_diff+"<br>");
-    	v += time_diff*accelaration[count];
+    	v += time_diff*accelaration[count-1];
         count ++;
     }
     return v;
